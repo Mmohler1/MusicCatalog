@@ -4,8 +4,25 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
-<body> 
-
-</body> 
+<h:head>
+	<title>Login Page</title>
+</h:head>
+	<h:body>
+		<!-- Sets the layout and Title of the page -->
+		<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="title">Login Page</ui:define>
+		<ui:define name="content">
+			<!-- The form for login -->
+			<div align="center">
+			<h:form>
+				Username: <h:inputText value="#{user.username}" title="" /><h:message for="username"/><br/> <!-- User Class in Managed Bean -->
+				Password <h:inputSecret value="#{user.password}" title="" /> <h:message for="password"/> <br/>   <!-- User Class, secret hides password -->
+				<h:commandButton action="#{principle.onSubmit(user)}" value="Login" />
+			</h:form>
+			<h:messages/> 
+			</div>
+		</ui:define>
+		</ui:composition>
+	
+	</h:body>	
 </html>
