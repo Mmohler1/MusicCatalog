@@ -4,8 +4,27 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:h="http://java.sun.com/jsf/html"> 
 
-<h:head></h:head> 
-<body> 
+<h:head>
+	<title>Main Page</title>
+</h:head>
+	
+	<h:body>
+		<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="title">Main Page</ui:define>
+		<ui:define name="content">
+			
+			<h:panelGrid columns="1">
+				<h:outputLabel for="name">
+				Hello #{user.username}. <br/><!-- Forwarded user variables go here-->
+				</h:outputLabel>
+			
+				<h:outputLabel for="buttons">
+					<h:button outcome="Login" value="Back to Login page" /> <!--Button to go back to -->
+				</h:outputLabel>
+			</h:panelGrid>
+			
+		</ui:define>
+		</ui:composition>
+	</h:body>
 
-</body> 
 </html>
