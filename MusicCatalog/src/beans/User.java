@@ -110,7 +110,7 @@ public class User {
 	{
 		try 
 		{
-			FileWriter writer = new FileWriter("myFile.txt");
+			FileWriter writer = new FileWriter("RegistrationFile.txt");
 			
 			writer.write(this.getFirstName() + "\n" + this.getLastName() + "\n" + this.getEmail() + "\n" + this.getAddress()
 						 + "\n"+ this.getPhoneNumber()+ "\n"+ this.getUserName()+"\n"+this.getPassword());
