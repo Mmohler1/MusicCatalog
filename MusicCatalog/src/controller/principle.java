@@ -25,7 +25,7 @@ public class principle {
 		{
 			//Looks for username in file
 			//FilePath in bin under wildfly 11
-			File RegFile = new File("TextFile.txt"); 
+			File RegFile = new File("RegistrationFile.txt"); 
 			Scanner theReader = new Scanner(RegFile);
 			
 			//Will stop the loop if there is nothing left in the file
@@ -88,7 +88,7 @@ public class principle {
 	public String onSubmit(User user)
 	{
 		//Saves parameters from user
-		String name = user.getUsername();
+		String name = user.getUserName();
 		String password = user.getPassword();
 		
 		//Searches file for users password and saves it.
