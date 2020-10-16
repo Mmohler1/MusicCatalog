@@ -15,8 +15,8 @@
 			<!-- The form for login -->
 			<div align="center">
 			<h:form>
-				Username: <h:inputText value="#{user.userName}" title="" /><h:message for="username"/><br/> <!-- User Class in Managed Bean For username-->
-				Password <h:inputSecret value="#{user.password}" title="" /> <h:message for="password"/> <br/>    <!-- User Class, secret hides password -->
+				Username: <h:inputText value="#{user.userName}" title="" /><h:message for="userName" id = "userName"/><br/> <!-- User Class in Managed Bean For username-->
+				Password <h:inputSecret value="#{user.password}" title="" /> <h:message for="password" id = "password"/> <br/>    <!-- User Class, secret hides password -->
 				<h:commandButton action="#{principle.onSubmit(user)}" value="Login" /> <br/><br/>  <!-- sends customer to product page -->
 				<h:link value = "Not signed up? Register here!" outcome = "Registration" />
 								
