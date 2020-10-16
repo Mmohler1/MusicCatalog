@@ -22,6 +22,7 @@
 							Username: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h:inputText id ="user" value="#{user.userName}" /><h:message for= "user"/><br/>
 							Password:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <h:inputText id ="password" value="#{user.password}" /><h:message for= "password"/><br/>
 							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<h:commandButton action="#{user.saveData}" value="Sign Up"/>	
+							<h:button outcome="Login" value="Back to Login page" />	
 					</h:form>
 				<h:messages/>
 				</div>
