@@ -8,12 +8,24 @@
 <h:body> 
 
 	<div id = "page">
+		<!-- Menu Facelet Here -->
+		<div id="menu" align="center">
+			<ui:insert name = "menu">
+				<ui:include src="/layouts/commonMenu.xhtml" />
+			</ui:insert>
+		</div>	
+
+
 		<!-- Header Facelet Here -->
 		<div id="header" align="center">
 			<ui:insert name = "header">
 				<ui:include src="/layouts/commonHeader.xhtml" />
 			</ui:insert>
 		</div>
+		
+		
+
+	
 		
 		<!-- Content Facelet Here -->
 		<div id="content" align="center">
