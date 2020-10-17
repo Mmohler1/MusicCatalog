@@ -8,7 +8,7 @@ import javax.validation.constraints.NotNull;
 @ViewScoped
 public class User {
 
-		//Initializing the values 
+		//Initializing the values and adding Bean validation constraints
 		@NotNull(message = "Please enter a First Name. This is a required field")
 		@Size(min=4, max=15)
 		String firstName = "";
@@ -17,7 +17,6 @@ public class User {
 		@Size(min=4, max=15)
 		String lastName = "";
 
-		//@AssertTrue("Email is not valid",isValid(email))
 		@NotNull(message = "Please enter an email. This is a required field")
 		@Size(min=10, max=20)
 		String email  = "";
@@ -49,81 +48,89 @@ public class User {
 			userName = "username";
 			password ="password";
 		}
-
+		
+		//getter and setter for firstname
 		public String getFirstName() {
 		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-	public String getPhoneNumber() {
-		return phoneNumber;
-	}
-
-	public void setPhoneNumber(String phoneNumber) {
-		this.phoneNumber = phoneNumber;
-	}
-
-	public String getUserName() {
-		return userName;
-	}
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	public String getPassword() {
-		return password;
-	}
-
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	
-	public void saveData() 
-	{
-		try 
-		{
-			FileWriter writer = new FileWriter("RegistrationFile.txt");
-			
-			writer.write(this.getFirstName() + "\n" + this.getLastName() + "\n" + this.getEmail() + "\n" + this.getAddress()
-						 + "\n"+ this.getPhoneNumber()+ "\n"+ this.getUserName()+"\n"+this.getPassword());
-			System.out.println("Successfully wrote to the file");
-			writer.close();
-			
 		}
-		catch(IOException e) 
+		
+		public void setFirstName(String firstName) {
+			this.firstName = firstName;
+		}
+		
+		//getter and setter for lastname
+		public String getLastName() {
+			return lastName;
+		}
+
+		public void setLastName(String lastName) {
+			this.lastName = lastName;
+		}
+	
+		//getter and setter for email
+		public String getEmail() {
+			return email;
+		}
+
+		public void setEmail(String email) {
+			this.email = email;
+		}
+
+		//getter and setter for address
+		public String getAddress() {
+			return address;
+		}
+		
+		public void setAddress(String address) {
+			this.address = address;
+		}
+		
+	        //getter and setter for phoneNumber
+		public String getPhoneNumber() {
+			return phoneNumber;
+		}
+
+		public void setPhoneNumber(String phoneNumber) {
+			this.phoneNumber = phoneNumber;
+		}
+		
+		//getter and setter for userName
+		public String getUserName() {
+			return userName;
+		}
+
+		public void setUserName(String userName) {
+			this.userName = userName;
+		}
+		
+		//getter and setter for password
+		public String getPassword() {
+			return password;
+		}
+		
+		public void setPassword(String password) {
+			this.password = password;
+		}
+
+		//saveData() creates a text file writes to all the properties to the file.
+		public void saveData() 
 		{
-			System.out.println("Error occured file wasn't created");
-			e.printStackTrace();
-		}	
-	}
+			try 
+			{
+				FileWriter writer = new FileWriter("RegistrationFile.txt");
+
+				writer.write(this.getFirstName() + "\n" + this.getLastName() + "\n" + this.getEmail() + "\n" + this.getAddress()
+							 + "\n"+ this.getPhoneNumber()+ "\n"+ this.getUserName()+"\n"+this.getPassword());
+				System.out.println("Successfully wrote to the file");
+				writer.close();
+
+			}
+			catch(IOException e) 
+			{
+				System.out.println("Error occured file wasn't created");
+				e.printStackTrace();
+			}	
+		}
 		
 		
 }
