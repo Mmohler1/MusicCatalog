@@ -10,6 +10,7 @@ import javax.inject.Inject;
 //Imports user class
 import beans.User;
 import business.SongBusinessInterface;
+import business.UserBusinessInterface;
 
 //Reading files
 import java.io.File;  //Importing the File
@@ -21,7 +22,12 @@ import java.util.Scanner;
 public class principle {
 
 	@Inject
-	SongBusinessInterface service;
+	SongBusinessInterface serviceSongs;
+	
+	@Inject
+	UserBusinessInterface service;
+	
+	
 	
 	//Searches a file for a username and then returns the password.
 	String findLogin(String Username)
@@ -106,7 +112,7 @@ public class principle {
 			
 			
 			//New Testing! ------------------------------------------
-			service.addSong();
+			service.test();
 			
 			//Forward to test response view with the user managed bean.
 			FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
@@ -136,6 +142,6 @@ public class principle {
 	
 	public SongBusinessInterface getService()
 	{
-		return service;
+		return serviceSongs;
 	}
 }
