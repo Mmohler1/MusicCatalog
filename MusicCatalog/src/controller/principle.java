@@ -1,12 +1,15 @@
 package controller;
 
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
 
 //Imports user class
 import beans.User;
+import business.SongBusinessInterface;
 
 //Reading files
 import java.io.File;  //Importing the File
@@ -17,6 +20,8 @@ import java.util.Scanner;
 @ViewScoped
 public class principle {
 
+	@Inject
+	SongBusinessInterface service;
 	
 	//Searches a file for a username and then returns the password.
 	String findLogin(String Username)
@@ -98,6 +103,11 @@ public class principle {
 		if (password.equals(loginPassword))
 		{
 			
+			
+			
+			//New Testing! ------------------------------------------
+			service.addSong();
+			
 			//Forward to test response view with the user managed bean.
 			FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
 			return "Main.xhtml";
@@ -106,11 +116,26 @@ public class principle {
 		else
 		{
 			
+
+			
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Unknown username or password"));
 			return "Login.xhtml";
 		}
 		
 	}
+	
+	
+	//Button that adds a song to the product list
+	public String addProduct()
+	{
+		
+		return "Main.xhtml";
+	}
 
 	
+	
+	public SongBusinessInterface getService()
+	{
+		return service;
+	}
 }
