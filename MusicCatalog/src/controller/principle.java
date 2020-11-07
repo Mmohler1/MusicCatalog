@@ -24,7 +24,6 @@ public class principle {
 	UserBusinessInterface service;
 	
 	
-	Songs songList = new Songs();
 	
 	//Default constructor 
 	public String onSubmit()
@@ -50,8 +49,11 @@ public class principle {
 			
 			
 			
-			//New Testing! ------------------------------------------
+			//Tests user interface
 			service.test();
+			
+			//Tests adds a bunch of songs to the list to showcase the table.
+			//Songs.addSong();
 			
 
 			//Forward to test response view with the user managed bean.

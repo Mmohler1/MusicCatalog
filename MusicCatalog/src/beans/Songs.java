@@ -27,12 +27,10 @@ public class Songs {
 	    //Default Constructor, used for testing
 		public static void addSong()
 		{
-			System.out.println("HEEEEEEEEEEEEEEEEEEEEEEEEEEEEH");
-	
 	    	songs.add(new Song(1, "Run This Town", "The Blueprint 3", "Jay-Z", "Rap"));
 	    	songs.add(new Song(2, "Welcome To the Jungle", "Appetite for Destruction", "Guns N' Roses", "Rock"));
-	    	songs.add(new Song(3, "Crazy", "Personnel", "Patsy Cline", "Country"));
-	 
+	    	songs.add(new Song(3, "Crazy", "Personnel", "Patsy Cline", "Country"));	 
+
 
 		}
 	    

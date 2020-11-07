@@ -14,16 +14,14 @@
 		<ui:define name="content">
 			
 		<!-- CSS style for the Data Table -->
-		<h:outputStylesheet library="css" name="music-style.css"/>
+		<h:outputStylesheet library="css" name="product-style.css"/>
 		
 			<h:panelGrid columns="1">
 				<h:outputLabel for="name">
-				Hello #{user.userName}. <br/><!-- Forwarded user variables go here-->
+				Hello #{user.userName}. Here is some of your latest music!<br/><!-- Forwarded user variables go here-->
 				</h:outputLabel>
 			
-				<h:outputLabel for="buttons">
-					<h:button outcome="Login" value="Back to Login page" /> <!--Button to go back to -->
-				</h:outputLabel>
+
 			</h:panelGrid>
 			
 			
@@ -65,8 +63,11 @@
 			</h:column>
 			
 		</h:dataTable>	
+		
+		<h:outputLabel for="buttons">
+					<br/><br/><h:button outcome="AddSong" value="Add" />   <!-- Go to add page -->
+		</h:outputLabel>
 			
-		<h:button outcome="AddSong" value="Add" /> <br/><br/>  <!-- Go to add page -->	
 		</ui:define>
 		</ui:composition>
 	</h:body>

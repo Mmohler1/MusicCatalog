@@ -33,6 +33,7 @@ public class Song {
 	@Size(min=3, max=20)
 	String genre = "";
 	
+	//Default constructor
 	public Song()
 	{
 		num = 1;
@@ -44,6 +45,7 @@ public class Song {
 		
 	}
 
+	//Loaded constructor to set all the song values
 	public Song(int num, String name, String album, String artist, String genre)
 	{
 		this.num = num;

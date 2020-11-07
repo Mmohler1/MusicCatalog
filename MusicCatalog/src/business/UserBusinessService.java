@@ -2,6 +2,8 @@ package business;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 import javax.ejb.Local;
@@ -11,10 +13,6 @@ import javax.enterprise.inject.Alternative;
 
 import beans.User;
 
-//Reading files
-import java.io.File;  //Importing the File
-import java.io.FileNotFoundException;
-import java.util.Scanner;
 
 /**
  * Session Bean implementation class UserBusinessService
@@ -34,6 +32,7 @@ public class UserBusinessService implements UserBusinessInterface {
 
 	/**
      * @see UserBusinessInterface#findLogin()
+     * Looks for the password on the text file using the username.
      */
     public String findLogin(String username) {
     	try 
@@ -88,6 +87,7 @@ public class UserBusinessService implements UserBusinessInterface {
 
 	/**
      * @see UserBusinessInterface#checkPassword()
+     * Returns true or false if the submitted password is the same as the one on file.
      */
     public boolean checkPassword(User user) {
         // TODO Auto-generated method stub
@@ -110,8 +110,20 @@ public class UserBusinessService implements UserBusinessInterface {
 	/**
      * @see UserBusinessInterface#saveData()
      */
-    public void saveData() {
+    public void saveData(User user)
+    {
         // TODO Auto-generated method stub
+    	try
+		{
+			FileWriter writer = new FileWriter("RegistrationFile.txt");			writer.write(user.getFirstName() + "\n" + user.getLastName() + "\n" + user.getEmail() + "\n" + user.getAddress()
+						+ "\n"+ user.getPhoneNumber()+ "\n"+ user.getUserName()+"\n"+ user.getPassword());
+			System.out.println("Successfully wrote to the file");
+			writer.close();		}
+		catch(IOException e)
+		{
+			System.out.println("Error occured file wasn't created");
+			e.printStackTrace();
+		}	
     }
     
     public void test()
