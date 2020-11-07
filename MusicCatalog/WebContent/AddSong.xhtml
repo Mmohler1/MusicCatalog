@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+      
+<h:head>
+	<title>Add Song</title>
+</h:head>
+	<h:body>
+		<!-- Sets the layout and Title of the page -->
+		<ui:composition template="/layouts/commonLayout.xhtml">
+		<ui:define name="title">Add Song</ui:define>
+		<ui:define name="content">
+			<!-- The form for login -->
+			<div align="center">
+			<h:form>
+				Number: <h:inputText value="#{song.num}" title="" /><h:message for="num" id = "num"/><br/> <!-- Song Class inputs to make a song-->
+				Song Name: <h:inputText value="#{song.name}" title="" /><h:message for="name" id = "name"/><br/>
+				Album: <h:inputText value="#{song.album}" title="" /><h:message for="album" id = "album"/><br/>
+				Artist: <h:inputText value="#{song.artist}" title="" /><h:message for="artist" id = "artist"/><br/>
+				Genre: <h:inputText value="#{song.genre}" title="" /><h:message for="genre" id = "genre"/><br/>
+				
+				<h:commandButton action="#{principle.addProduct(song)}" value="Add Song" /> <br/><br/>  <!-- Adds song and sends back to Product page-->
+				<h:commandButton action="Main.xhtml" value="Cancel" /> <br/><br/>  <!-- Back to user page -->
+								
+			</h:form>
+			<h:messages/> 
+			</div>
+		</ui:define>
+		</ui:composition>
+	
+	</h:body>	
+</html>

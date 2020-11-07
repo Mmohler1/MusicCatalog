@@ -9,78 +9,22 @@ import javax.inject.Inject;
 
 //Imports user class
 import beans.User;
-import business.SongBusinessInterface;
 import business.UserBusinessInterface;
+import beans.Song;
+import beans.Songs;
 
-//Reading files
-import java.io.File;  //Importing the File
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+
 
 @ManagedBean
 @ViewScoped
 public class principle {
 
-	@Inject
-	SongBusinessInterface serviceSongs;
 	
 	@Inject
 	UserBusinessInterface service;
 	
 	
-	
-	//Searches a file for a username and then returns the password.
-	String findLogin(String Username)
-	{
-		try 
-		{
-			//Looks for username in file
-			//FilePath in bin under wildfly 11
-			File RegFile = new File("RegistrationFile.txt"); 
-			Scanner theReader = new Scanner(RegFile);
-			
-			//Will stop the loop if there is nothing left in the file
-			while (theReader.hasNextLine())
-			{
-				//Takes file to line 6 which has the username. 
-				for(int x = 0; x<5; x++)
-				{
-					theReader.nextLine();
-				}
-				
-				//If the username fits then return password
-				if (theReader.nextLine().equals(Username))
-				{
-					String password = theReader.nextLine();
-					
-					//Closes file to allow others to use
-					theReader.close();
-					
-					return password;
-					
-				}
-				//returns nothing if username not found
-				else
-				{
-					theReader.close();
-					return null;
-				}
-			}
-			//returns nothing if file reaches the end
-			theReader.close();
-			return null;
-			
-		}
-		catch (FileNotFoundException e)
-		{
-			//Debugging, Tells maintenance it's an issue with the file.  
-			System.out.println("File couldn't be read!");
-			
-			return null;
-			
-		}
-		
-	}
+	Songs songList = new Songs();
 	
 	//Default constructor 
 	public String onSubmit()
@@ -98,15 +42,10 @@ public class principle {
 	//Submits button that checks if username and password match
 	public String onSubmit(User user)
 	{
-		//Saves parameters from user
-		String name = user.getUserName();
-		String password = user.getPassword();
 		
-		//Searches file for users password and saves it.
-		String loginPassword = findLogin(name);
 		
 		//if both passwords are the same then forward to main page
-		if (password.equals(loginPassword))
+		if (service.checkPassword(user))
 		{
 			
 			
@@ -114,6 +53,7 @@ public class principle {
 			//New Testing! ------------------------------------------
 			service.test();
 			
+
 			//Forward to test response view with the user managed bean.
 			FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
 			return "Main.xhtml";
@@ -121,8 +61,6 @@ public class principle {
 		//If password is not the same then tell customer unknown information.
 		else
 		{
-			
-
 			
 			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Unknown username or password"));
 			return "Login.xhtml";
@@ -132,16 +70,25 @@ public class principle {
 	
 	
 	//Button that adds a song to the product list
-	public String addProduct()
+	public String addProduct(Song song)
 	{
+		//adds song from the values added in the get button page.
+		Songs.addSong(
+				song.getNum(), 
+				song.getName(), 
+				song.getAlbum(), 
+				song.getArtist(), 
+				song.getGenre());
 		
 		return "Main.xhtml";
 	}
 
 	
 	
-	public SongBusinessInterface getService()
+	public UserBusinessInterface getService()
 	{
-		return serviceSongs;
+		return service;
 	}
+	
 }
+
