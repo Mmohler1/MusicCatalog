@@ -13,6 +13,8 @@ public class Song {
 	//Initialized values for each
 	//Variables go Num, Name, Album, Artist, and Genre, Length
 	
+	int id = 1;
+	
 	@NotNull(message = "Please enter a number.")
 	int num = 1;
 	
@@ -36,6 +38,7 @@ public class Song {
 	//Default constructor
 	public Song()
 	{
+		id = 0;
 		num = 1;
 		name = "Name";
 		album = "Album";
@@ -46,8 +49,9 @@ public class Song {
 	}
 
 	//Loaded constructor to set all the song values
-	public Song(int num, String name, String album, String artist, String genre)
+	public Song(int id, int num, String name, String album, String artist, String genre)
 	{
+		this.id = id;
 		this.num = num;
 		this.name = name;
 		this.album = album;
@@ -58,6 +62,14 @@ public class Song {
 
 	
 	//Getters and Setters
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public int getNum() {
 		return num;
 	}

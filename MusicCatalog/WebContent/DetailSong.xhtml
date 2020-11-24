@@ -1,40 +1,51 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
-
+      xmlns:h="http://java.sun.com/jsf/html">
+      
 <h:head>
-	<title>Main Page</title>
+	<title>Detail Song</title>
 </h:head>
-	
 	<h:body>
+		<!-- Sets the layout and Title of the page -->
 		<ui:composition template="/layouts/commonLayout.xhtml">
-		<ui:define name="title">Main Page</ui:define>
+		<ui:define name="title">Detail Song</ui:define>
 		<ui:define name="content">
-			
+		
 		<!-- CSS style for the Data Table -->
 		<h:outputStylesheet library="css" name="product-style.css"/>
-		
-			<h:panelGrid columns="1">
-				<h:outputLabel for="name">
-				Hello #{user.userName}. Here is some of your latest music!<br/><!-- Forwarded user variables go here-->
-				</h:outputLabel>
 			
-
-			</h:panelGrid>
+			<!-- The form for login -->
+			<div align="center">
+			<h3>Get more details from all songs with the same name!</h3>
 			
+			<h:form>
+				Song Name: <h:inputText value="#{song.name}" title="" /><h:message for="name" id = "name"/><br/>
+				
+				<h:commandButton action="#{principle.addProduct(song)}" value="Get Details" />     <!-- Showcase details from every song in the table below -->
+				<h:commandButton action="Main.xhtml" value="Cancel" />  <!-- Back to user page -->
+								
+			</h:form>
+			<h:messages/> 
+			<br/><br/><br/>
 			
-			
-		<!--  Data table using the users song list-->
-		<h:dataTable value="#{principle.service.songs}" var="song"
+			<!--  Data table using the users song list-->
+		<h:dataTable value="#{principle.service.detailedSongs}" var="song"
 			styleClass="orderTable" 
     		headerClass="orderTHeader"
     		rowClasses="orderORow,orderERow"
     		>
 			
+			<!-- Song id -->
+			<h:column>
+				<f:facet name = "header">Song ID</f:facet>
+				#{song.id}
+			</h:column>
+			
 			<!-- Song Number -->
 			<h:column>
+			
 				<f:facet name = "header">Song Number</f:facet>
 				#{song.num}
 			</h:column>
@@ -63,17 +74,10 @@
 				#{song.genre}
 			</h:column>
 			
-		</h:dataTable>	
-		
-		<h:outputLabel for="buttons">
-					<br/><br/>	<h:button outcome="AddSong" value="Add" />   		<!-- Go to add page -->
-								<h:button outcome="UpdateSong" value="Update" />	<!-- Go to update page -->
-								<h:button outcome="DeleteSong" value="Delete" />	<!-- Go to detail page -->
-								<h:button outcome="DetailSong" value="Detail" />	<!-- Go to detail page -->
-		</h:outputLabel>
-			
+		</h:dataTable>
+			</div>
 		</ui:define>
 		</ui:composition>
-	</h:body>
-
+	
+	</h:body>	
 </html>

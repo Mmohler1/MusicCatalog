@@ -1,12 +1,16 @@
 package business;
 
 import java.util.List;
-import javax.ejb.Local;
+
 import beans.Song;
 
-@Local
 public interface SongBusinessInterface {
+	
+	public void addSong(Song song);
+	public void test();
 	public List<Song> getSongs();
-	public void setSongs(List<Song> orders);
-	public void addSong();
+	public void setSongs(List<Song> songs);
+	public void changeSong(int songID, Song song);
+	public List<Song> getDetailedSongs();
+
 }

@@ -1,6 +1,7 @@
 package controller;
 
 
+import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
@@ -9,9 +10,9 @@ import javax.inject.Inject;
 
 //Imports user class
 import beans.User;
+import business.SongBusinessInterface;
 import business.UserBusinessInterface;
 import beans.Song;
-import beans.Songs;
 
 
 
@@ -21,7 +22,10 @@ public class principle {
 
 	
 	@Inject
-	UserBusinessInterface service;
+	UserBusinessInterface userService;
+	
+	@EJB
+	SongBusinessInterface service;
 	
 	
 	
@@ -44,16 +48,8 @@ public class principle {
 		
 		
 		//if both passwords are the same then forward to main page
-		if (service.checkPassword(user))
+		if (userService.checkPassword(user))
 		{
-			
-			
-			
-			//Tests user interface
-			service.test();
-			
-			//Tests adds a bunch of songs to the list to showcase the table.
-			//Songs.addSong();
 			
 
 			//Forward to test response view with the user managed bean.
@@ -75,19 +71,36 @@ public class principle {
 	public String addProduct(Song song)
 	{
 		//adds song from the values added in the get button page.
-		Songs.addSong(
-				song.getNum(), 
-				song.getName(), 
-				song.getAlbum(), 
-				song.getArtist(), 
-				song.getGenre());
+		service.addSong(song);
+		
+
 		
 		return "Main.xhtml";
 	}
 
+	//Button that adds a song to the product list
+	public String changeProduct(Song song)
+	{
+		int songID = song.getId();
+		//Changes song with values from the 
+		service.changeSong(songID, song);
+		
+
+		
+		return "UpdateSong.xhtml";
+	}
 	
+	public void detailedProduct(int songID)
+	{
+		
+	}
 	
-	public UserBusinessInterface getService()
+	public UserBusinessInterface getService1()
+	{
+		return userService;
+	}
+	
+	public SongBusinessInterface getService()
 	{
 		return service;
 	}

@@ -5,28 +5,32 @@
       xmlns:h="http://java.sun.com/jsf/html">
       
 <h:head>
-	<title>Add Song</title>
+	<title>Update Song</title>
 </h:head>
 	<h:body>
 		<!-- Sets the layout and Title of the page -->
 		<ui:composition template="/layouts/commonLayout.xhtml">
-		<ui:define name="title">Add Song</ui:define>
+		<ui:define name="title">Update Song</ui:define>
 		<ui:define name="content">
 		
 			
 			<!-- The form for login -->
 			<div align="center">
-			<h3>Add A Song to Your MusicCatalog</h3>
+			<h3>Update a Song in Your MusicCatalog</h3>
 			
 			<h:form>
+				<h4>Type in the song's ID that you want to change!</h4>
+				Song ID: <h:inputText value="#{song.id}" title="" /><h:message for="songid" id = "songid"/><br/><br/> <!-- Song Class inputs to make a song-->
+				
+				<h4>Update all of the songs info here!</h4>
 				Number: <h:inputText value="#{song.num}" title="" /><h:message for="num" id = "num"/><br/> <!-- Song Class inputs to make a song-->
 				Song Name: <h:inputText value="#{song.name}" title="" /><h:message for="name" id = "name"/><br/>
 				Album: <h:inputText value="#{song.album}" title="" /><h:message for="album" id = "album"/><br/>
 				Artist: <h:inputText value="#{song.artist}" title="" /><h:message for="artist" id = "artist"/><br/>
 				Genre: <h:inputText value="#{song.genre}" title="" /><h:message for="genre" id = "genre"/><br/>
 				
-				<h:commandButton action="#{principle.addProduct(song)}" value="Add Song" />     <!-- Adds song and sends back to Product page-->
-				<h:commandButton action="DetailSong.xhtml" value="Cancel" />  <!-- Back to user page -->
+				<h:commandButton action="#{principle.changeProduct(song)}" value="Update Song" />     <!-- Adds song and sends back to Product page-->
+				<h:commandButton action="Main.xhtml" value="Cancel" />  <!-- Back to user page -->
 								
 			</h:form>
 			<h:messages/> 
