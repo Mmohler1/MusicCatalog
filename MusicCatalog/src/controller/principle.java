@@ -67,6 +67,23 @@ public class principle {
 	}
 	
 	
+	public String onUpdate(Song song)
+	{
+		//Forward response view with the song managed bean.
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("song", song);
+		return "UpdateSong.xhtml";
+	}
+	
+	
+	public String onDetailed(Song song)
+	{
+		//Forward response view with the song managed bean.
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("songs", song);
+		return "DetailSong.xhtml";
+	}
+	
+	
+	
 	//Button that adds a song to the product list
 	public String addProduct(Song song)
 	{
