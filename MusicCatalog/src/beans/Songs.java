@@ -8,8 +8,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
-
-import business.DataSongInterface;
+import data.DataSongInterface;
 
 @ManagedBean
 @ViewScoped

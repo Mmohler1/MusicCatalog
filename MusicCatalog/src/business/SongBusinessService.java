@@ -1,8 +1,8 @@
 package business;
 
 import beans.Song;
+import data.DataSongInterface;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -22,8 +22,6 @@ import javax.faces.bean.ViewScoped;
 @ViewScoped
 public class SongBusinessService implements SongBusinessInterface {
 	
-	List <Song> songs = new ArrayList<Song>();
-	List <Song> dsongs = new ArrayList<Song>();
 	
 	@EJB
 	DataSongInterface service;
@@ -37,9 +35,10 @@ public class SongBusinessService implements SongBusinessInterface {
 
     
     
+    
 	/**
      * @see SongBusinessInterface#addSong(Song)
-     * Adds a song to the above list
+     * Adds a song by calling the database.
      */
     public void addSong(Song song) {
     	
@@ -57,7 +56,7 @@ public class SongBusinessService implements SongBusinessInterface {
     	System.out.println("Song Business service worked!");
     }
     
-    //Updates song found in id to something different, unless it is null.
+    //Updates song found in id, if null output message that no song was found..
     public void changeSong(int songID, Song song) {
     	
 
@@ -82,8 +81,8 @@ public class SongBusinessService implements SongBusinessInterface {
 		//this.songs = songs;
 	}
 
-	//Getters and Setters from detailed list
+	//Getters from detailed list
 	public List<Song> getDetailedSongs() {
-		return dsongs;
+		return service.findAll();
 	}
 }
