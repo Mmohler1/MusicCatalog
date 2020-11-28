@@ -57,19 +57,21 @@ public class SongBusinessService implements SongBusinessInterface {
     }
     
     //Updates song found in id, if null output message that no song was found..
-    public void changeSong(int songID, Song song) {
+    public void changeSong(Song song) {
     	
-
     	//Find out if the location even has a song.
-    	if (service.findById(songID) == null)
+    	if (service.findById(song.getId()) == null)
     	{
     		System.out.println("No Song Found!");
     	}
     	else
-    	service.update(songID, song);
+    	service.update(song);
     }
     
-    
+    public void deleteSong(Song song)
+    {
+    	System.out.println("It worked");
+    }
     
 	//Getters and Setters for song list
 	public List<Song> getSongs() {
@@ -82,7 +84,7 @@ public class SongBusinessService implements SongBusinessInterface {
 	}
 
 	//Getters from detailed list
-	public List<Song> getDetailedSongs() {
-		return service.findAll();
+	public List<Song> getFewSongs() {
+		return service.findFew();
 	}
 }

@@ -15,24 +15,24 @@
 		
 			
 			<!-- The form for login -->
-			<div align="center">
+			<div align="center"><div class ="aligned">
 			<h3>Update a Song in Your MusicCatalog</h3>
 			
 			<h:form>
 				<h4>Type in the song's ID that you want to change!</h4>
-				Song ID: <h:inputText value="#{song.id}" title="" /><h:message for="songid" id = "songid"/><br/><br/> <!-- Song Class inputs to make a song-->
-				
+				Song ID:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 					<h:inputText value="#{song.id}" title="" /><h:message for="songid" id = "songid"/><br/><br/> <!-- Song Class inputs to make a song-->
+	
 				<h4>Update all of the songs info here!</h4>
-				Number: <h:inputText value="#{song.num}" title="" /><h:message for="num" id = "num"/><br/> <!-- Song Class inputs to make a song-->
-				Song Name: <h:inputText value="#{song.name}" title="" /><h:message for="name" id = "name"/><br/>
-				Album: <h:inputText value="#{song.album}" title="" /><h:message for="album" id = "album"/><br/>
-				Artist: <h:inputText value="#{song.artist}" title="" /><h:message for="artist" id = "artist"/><br/>
-				Genre: <h:inputText value="#{song.genre}" title="" /><h:message for="genre" id = "genre"/><br/>
-				
+				Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 						<h:inputText value="#{song.num}" title="" /><h:message for="num" id = "num"/><br/> <!-- Song Class inputs to make a song-->
+				Song Name:&nbsp;													<h:inputText value="#{song.name}" title="" /><h:message for="name" id = "name"/><br/>
+				Album:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;				<h:inputText value="#{song.album}" title="" /><h:message for="album" id = "album"/><br/>
+				Artist:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		<h:inputText value="#{song.artist}" title="" /><h:message for="artist" id = "artist"/><br/>
+				Genre:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 			<h:inputText value="#{song.genre}" title="" /><h:message for="genre" id = "genre"/><br/>
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<h:commandButton action="#{principle.changeProduct(song)}" value="Update Song" />     <!-- Adds song and sends back to Product page-->
-				<h:commandButton action="Main.xhtml" value="Cancel" />  <!-- Back to user page -->
-								
+				<h:commandButton action="DisplaySong.xhtml" value="Catalog" />  <!-- Back to user page -->
 			</h:form>
+			</div>
 			<h:messages/> 
 			</div>
 		</ui:define>

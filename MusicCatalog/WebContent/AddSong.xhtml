@@ -15,21 +15,25 @@
 		
 			
 			<!-- The form for login -->
-			<div align="center">
+			<div align="center"> 
+				<div class = "aligned">
 			<h3>Add A Song to Your MusicCatalog</h3>
 			
 			<h:form>
-				Number: <h:inputText value="#{song.num}" title="" /><h:message for="num" id = "num"/><br/> <!-- Song Class inputs to make a song-->
-				Song Name: <h:inputText value="#{song.name}" title="" /><h:message for="name" id = "name"/><br/>
-				Album: <h:inputText value="#{song.album}" title="" /><h:message for="album" id = "album"/><br/>
-				Artist: <h:inputText value="#{song.artist}" title="" /><h:message for="artist" id = "artist"/><br/>
-				Genre: <h:inputText value="#{song.genre}" title="" /><h:message for="genre" id = "genre"/><br/>
-				
+				Number:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 							<h:inputText value="#{song.num}" title="" /><h:message for="num" id = "num"/><br/> <!-- Song Class inputs to make a song-->
+				Song Name:&nbsp;												<h:inputText value="#{song.name}" title="" /><h:message for="name" id = "name"/><br/>
+				Album:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			<h:inputText value="#{song.album}" title="" /><h:message for="album" id = "album"/><br/>
+				Artist:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	<h:inputText value="#{song.artist}" title="" /><h:message for="artist" id = "artist"/><br/>
+				Genre:  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;		<h:inputText value="#{song.genre}" title="" /><h:message for="genre" id = "genre"/><br/>
+			</h:form>	
+			</div>	
+			<h:form>
 				<h:commandButton action="#{principle.addProduct(song)}" value="Add Song" />     <!-- Adds song and sends back to Product page-->
-				<h:commandButton action="DetailSong.xhtml" value="Cancel" />  <!-- Back to user page -->
-								
+				<h:commandButton action="DisplaySong.xhtml" value="Cancel" />  <!-- Back to user page -->
+						
 			</h:form>
 			<h:messages/> 
+			
 			</div>
 		</ui:define>
 		</ui:composition>

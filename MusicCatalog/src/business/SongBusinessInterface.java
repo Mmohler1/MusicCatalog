@@ -10,7 +10,9 @@ public interface SongBusinessInterface {
 	public void test();
 	public List<Song> getSongs();
 	public void setSongs(List<Song> songs);
-	public void changeSong(int songID, Song song);
-	public List<Song> getDetailedSongs();
+	public void changeSong(Song song);
+	public List<Song> getFewSongs();
+	public void deleteSong(Song song);
+	
 
 }

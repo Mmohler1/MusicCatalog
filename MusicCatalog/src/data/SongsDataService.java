@@ -86,11 +86,73 @@ public class SongsDataService implements DataSongInterface {
 		}
     }
 	
+    
+    
+    public List<Song> findFew() {
+        // TODO Auto-generated method stub
+		Connection conn = null;	
+		String sql = "SELECT * FROM milestone.SONGS ORDER BY ID DESC LIMIT 4";
+		List<Song> songs = new ArrayList<Song>();
+		
+		try
+		{
+			//Connecting to database
+			conn = DriverManager.getConnection(url, username, password);
+			
+			//Execute SQL Query and loop
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				//add new order with each new table
+				songs.add(new Song(rs.getInt("ID"),
+						rs.getInt("SONG_NO"),
+						rs.getString("SONG_NAME"), 
+						rs.getString("SONG_ALBUM"), 
+						rs.getString("SONG_ARTIST"),
+						rs.getString("SONG_GENRE")));			
+			}
+			
+			
+			conn.close();
+			return songs;
+		}
+		catch (SQLException e)
+		{
+			
+			e.printStackTrace();
+			return null;
+			
+		}
+		finally
+		{
+			//Database cleaning
+			if(conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+			
+		}
+    }
+    
+    
+    
+    
+    
+    
 	/**
      * @see DataSongInterface#update(Song)
      * Updates the songs based on the ID in the database.
      */
-    public void update(int songID, Song song) {
+    public void update(Song song) {
         // TODO Auto-generated method stub
    	Connection conn = null;
     	
@@ -102,7 +164,7 @@ public class SongsDataService implements DataSongInterface {
 				"SONG_ALBUM = '"+ updateSong.getAlbum() + "', " + 
 				"SONG_ARTIST = '"+ updateSong.getArtist() + "', " +
 				"SONG_GENRE = '"+updateSong.getGenre() + 
-				"' WHERE ID = " + songID + ";";
+				"' WHERE ID = " + updateSong.getId() + ";";
 		
 		try
 		{
@@ -196,6 +258,8 @@ public class SongsDataService implements DataSongInterface {
 		Song song = null;
 		int newId = id;
 		
+		System.out.println(""+ newId);
+		
 		try
 		{
 			//Connecting to database
@@ -208,7 +272,7 @@ public class SongsDataService implements DataSongInterface {
 			while(rs.next())
 			{
 				
-				//add new order with each new table
+				//add new song with each new table
 				if (rs.getInt("ID") == newId)
 				{
 					
@@ -249,6 +313,9 @@ public class SongsDataService implements DataSongInterface {
 			
 		}
     }
+    
+    
+    
     
     //Tests to see if class is working
     public void test()

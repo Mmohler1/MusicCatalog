@@ -8,6 +8,7 @@ import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
+
 //Imports user class
 import beans.User;
 import business.SongBusinessInterface;
@@ -92,25 +93,24 @@ public class principle {
 		
 
 		
-		return "Main.xhtml";
+		return "DisplaySong.xhtml";
 	}
 
 	//Button that adds a song to the product list
 	public String changeProduct(Song song)
 	{
-		int songID = song.getId();
+
+
+		System.out.println(""+song.getId());
 		//Changes song with values from the 
-		service.changeSong(songID, song);
+		service.changeSong(song);
 		
 
 		
-		return "UpdateSong.xhtml";
+		return "DisplaySong.xhtml";
 	}
 	
-	public void detailedProduct(int songID)
-	{
-		
-	}
+
 	
 	public UserBusinessInterface getService1()
 	{
