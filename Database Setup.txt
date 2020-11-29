@@ -1,0 +1,45 @@
+DROP TABLE IF EXISTS milestone.Songs;
+
+DROP SCHEMA IF EXISTS milestone RESTRICT;
+
+CREATE SCHEMA milestone;
+
+CREATE TABLE milestone.Songs
+
+    (
+
+        ID SERIAL PRIMARY KEY,
+
+        SONG_NO INTEGER NOT NULL,
+
+        SONG_NAME VARCHAR(100) NOT NULL,
+
+        SONG_ALBUM VARCHAR(40) NOT NULL,
+
+        SONG_ARTIST VARCHAR(40) NOT NULL,   
+
+        SONG_GENRE VARCHAR(20) NOT NULL 
+
+    );
+
+INSERT INTO milestone.Songs(SONG_NO, SONG_NAME, SONG_ALBUM, SONG_ARTIST, SONG_GENRE) VALUES(1, 'Scars', 'Lifelines', 'I Prevail', 'Rock');
+
+INSERT INTO milestone.Songs(SONG_NO, SONG_NAME, SONG_ALBUM, SONG_ARTIST, SONG_GENRE) VALUES(3, 'Lifelines', 'Lifelines', 'I Prevail', 'Rock');
+
+INSERT INTO milestone.Songs(SONG_NO, SONG_NAME, SONG_ALBUM, SONG_ARTIST, SONG_GENRE) VALUES(4, 'Space Bound', 'Recovery', 'Eminem', 'HipHop');
+
+INSERT INTO milestone.Songs(SONG_NO, SONG_NAME, SONG_ALBUM, SONG_ARTIST, SONG_GENRE) VALUES(5, 'Not Afraid', 'Recovery', 'Eminem', 'HipHop');
+
+INSERT INTO milestone.Songs(SONG_NO, SONG_NAME, SONG_ALBUM, SONG_ARTIST, SONG_GENRE) VALUES(6, 'Mockingbird', 'Encore', 'Eminem', 'HipHop');
+
+INSERT INTO milestone.Songs(SONG_NO, SONG_NAME, SONG_ALBUM, SONG_ARTIST, SONG_GENRE) VALUES(7, 'My Way', 'My Way', 'Frank Sinatra', 'Jazz');
+
+INSERT INTO milestone.Songs(SONG_NO, SONG_NAME, SONG_ALBUM, SONG_ARTIST, SONG_GENRE) VALUES(8, 'Michelle', 'Rubber Soul', 'The Beatles', 'Pop');
+
+INSERT INTO milestone.Songs(SONG_NO, SONG_NAME, SONG_ALBUM, SONG_ARTIST, SONG_GENRE) VALUES(9, 'Human Nature', 'Thriller', 'Micheal Jackson','Pop');
+
+INSERT INTO milestone.Songs(SONG_NO, SONG_NAME, SONG_ALBUM, SONG_ARTIST, SONG_GENRE) VALUES(10, 'Thriller', 'Thriller', 'Micheal Jackson','Pop');
+
+INSERT INTO milestone.Songs(SONG_NO, SONG_NAME, SONG_ALBUM, SONG_ARTIST, SONG_GENRE) VALUES(11, 'Nostalgia', 'Keys to Imagination', 'Yanni','Dance/Electronic');
+
+INSERT INTO milestone.Songs(SONG_NO, SONG_NAME, SONG_ALBUM, SONG_ARTIST, SONG_GENRE) VALUES(12, 'Purple Rain', 'Purple Rain', 'Prince','Pop');
