@@ -68,9 +68,9 @@ public class SongBusinessService implements SongBusinessInterface {
     	service.update(song);
     }
     
-    public void deleteSong(Song song)
-    {
-    	System.out.println("It worked");
+    //Delete song
+    public void deleteSong(Song song) {
+    	service.delete(song.getId());
     }
     
 	//Getters and Setters for song list

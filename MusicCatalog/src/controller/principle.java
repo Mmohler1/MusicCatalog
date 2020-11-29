@@ -83,7 +83,19 @@ public class principle {
 		return "DetailSong.xhtml";
 	}
 	
+	public String onDelete(Song song) 
+	{
+		
+		service.deleteSong(song);
+		
+		return "DisplaySong.xhtml";
+	}
 	
+	public String onDeleteHelp(Song song) 
+	{
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("song", song);
+		return "Delete.xhtml";
+	}
 	
 	//Button that adds a song to the product list
 	public String addProduct(Song song)

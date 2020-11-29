@@ -18,7 +18,7 @@
 		
 			<h:panelGrid columns="1">
 				<h:outputLabel for="name">
-				Hello #{user.userName}. Here is some of your latest music!<br/><!-- Forwarded user variables go here-->
+				Hello #{user.userName}. Here is all of your  music!<br/><!-- Forwarded user variables go here-->
 				</h:outputLabel>
 			
 
@@ -33,11 +33,6 @@
     		rowClasses="orderORow,orderERow"
     		>
 			
-			<!-- Song Number -->
-			<h:column>
-				<f:facet name = "header">Song Number</f:facet>
-				#{songDe.num}
-			</h:column>
 				
 			<!-- Name of Song -->
 			<h:column>
@@ -68,8 +63,8 @@
 				<f:facet name = "header">Action</f:facet>
 							<h:form> 
 								<h:commandButton action="#{principle.onUpdate(songDe)}" value="Update" /> <!-- Go to update page -->
-								<!-- <h:button outcome="DeleteSong" value="Delete" />	Go to detail page -->
 								<h:commandButton action="#{principle.onDetailed(songDe)}" value="Details" /> <!-- Go to detail page -->
+								<h:commandButton action="#{principle.onDeleteHelp(songDe)}" value="Delete" /><!-- Go to delete page -->
 							</h:form>
 			</h:column>
 			

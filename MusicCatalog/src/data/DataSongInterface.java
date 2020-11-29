@@ -11,7 +11,7 @@ public interface DataSongInterface {
     public List<Song> findFew();
 	public void create(Song song);
 	public void update(Song song);
-	public void delete(Song song);
+	public void delete(int id);
 	public Song findById(int id);
 	public void test();
 

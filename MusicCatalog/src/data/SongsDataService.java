@@ -199,8 +199,39 @@ public class SongsDataService implements DataSongInterface {
      * @see DataSongInterface#delete(Song)
      * Deletes the chosen song from database.
      */
-    public void delete(Song song) {
+    public void delete(int id) {
         // TODO Auto-generated method stub
+    	Connection conn = null;
+    	
+    	String sql = "DELETE FROM milestone.SONGS"+
+    					" WHERE ID = "
+    					+ id +";";
+    	
+    	try
+		{
+			conn = DriverManager.getConnection(url, username, password);
+			Statement stmt = conn.createStatement();
+			stmt.executeUpdate(sql);
+		}
+		catch (SQLException e)
+		{
+			e.printStackTrace();
+		}
+		finally
+		{
+			//Database cleaning
+			if(conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}
     }
 
 
