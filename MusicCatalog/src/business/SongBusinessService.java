@@ -87,4 +87,13 @@ public class SongBusinessService implements SongBusinessInterface {
 	public List<Song> getFewSongs() {
 		return service.findFew();
 	}
+	
+	//Getters from search list
+	public List<Song> getSearchedSongs(Song song) {
+		
+		return service.search(song);
+	}
+	
+
+	
 }

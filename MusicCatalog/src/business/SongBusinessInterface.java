@@ -13,6 +13,7 @@ public interface SongBusinessInterface {
 	public void changeSong(Song song);
 	public List<Song> getFewSongs();
 	public void deleteSong(Song song);
-	
+	public List<Song> getSearchedSongs(Song song);
+
 
 }

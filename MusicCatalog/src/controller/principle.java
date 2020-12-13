@@ -29,7 +29,6 @@ public class principle {
 	SongBusinessInterface service;
 	
 	
-	
 	//Default constructor 
 	public String onSubmit()
 	{
@@ -96,6 +95,15 @@ public class principle {
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("song", song);
 		return "Delete.xhtml";
 	}
+	
+	public String onSearch(Song song)
+	{
+		
+		
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("searched", song);
+		return "Search2.xhtml";
+	}
+	
 	
 	//Button that adds a song to the product list
 	public String addProduct(Song song)

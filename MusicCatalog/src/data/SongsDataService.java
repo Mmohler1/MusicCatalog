@@ -27,6 +27,7 @@ public class SongsDataService implements DataSongInterface {
 	String password = "chair";        //NEEDS TO BE CHANGE FOR EACH PERSON'S POSTGRES PASSWORD!!!!!!!!!!!!
 
 	
+	
 	/**
      * @see DataSongInterface#display()
      * Displays all the songs to the user from the database by returning it as a list of songs
@@ -354,4 +355,63 @@ public class SongsDataService implements DataSongInterface {
     	System.out.println("test");
     }
 
+    
+    //Search for song based on name.
+    public List<Song> search(Song song) {
+        // TODO Auto-generated method stub
+		Connection conn = null;	
+		String sql = "SELECT * FROM milestone.SONGS";
+		List<Song> songs = new ArrayList<Song>();
+		
+		try
+		{
+			//Connecting to database
+			conn = DriverManager.getConnection(url, username, password);
+			
+			//Execute SQL Query and loop
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next())
+			{
+				if (rs.getString("SONG_NAME").equals(song.getName()))
+				{
+				//add new order with each new table
+				songs.add(new Song(rs.getInt("ID"),
+						rs.getInt("SONG_NO"),
+						rs.getString("SONG_NAME"), 
+						rs.getString("SONG_ALBUM"), 
+						rs.getString("SONG_ARTIST"),
+						rs.getString("SONG_GENRE")));	
+				}
+			}
+			
+			
+			conn.close();
+			return songs;
+		}
+		catch (SQLException e)
+		{
+			
+			e.printStackTrace();
+			return null;
+			
+		}
+		finally
+		{
+			//Database cleaning
+			if(conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+			
+		}
+    }
 }
