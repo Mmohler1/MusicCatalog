@@ -7,7 +7,6 @@ import javax.inject.Inject;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
-import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
@@ -47,14 +46,4 @@ public class SongsRestService {
 			
 		}
 
-		//Returns the song that was updated in the database with the /putjson url
-		@PUT
-		@Path("/putjson")
-		@Produces(MediaType.APPLICATION_JSON)
-		public Song createOrdersAsJson(Song song)
-		{
-			service.changeSong(song);
-			return song;
-			
-		}
 }
