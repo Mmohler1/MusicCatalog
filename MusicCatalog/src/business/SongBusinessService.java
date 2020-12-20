@@ -41,6 +41,7 @@ public class SongBusinessService implements SongBusinessInterface {
 	/**
      * @see SongBusinessInterface#addSong(Song)
      * Adds a song by calling the database.
+     * @Param Song
      */
     public void addSong(Song song) {
     	
@@ -58,7 +59,13 @@ public class SongBusinessService implements SongBusinessInterface {
     	System.out.println("Song Business service worked!");
     }
     
-    //Updates song found in id, if null output message that no song was found..
+    
+    
+	/**
+     *Updates song found in id, if null output message that no song was found..
+     *
+     *@Param Song
+     */
     public void changeSong(Song song) {
     	
     	//Find out if the location even has a song.
@@ -70,7 +77,12 @@ public class SongBusinessService implements SongBusinessInterface {
     	service.update(song);
     }
     
-    //Delete song
+    
+	/**
+     *Delete song
+     *
+     *@Param Song
+     */
     public void deleteSong(Song song) {
     	service.delete(song.getId());
     }
@@ -96,7 +108,12 @@ public class SongBusinessService implements SongBusinessInterface {
 		return service.search(song);
 	}
 	
-	//gets random songs for the user based on genre
+	
+	/**
+     *Gets random songs for the user based on genre
+     *
+     *@Param Song
+     */
 	public List<Song> getRandomizedSongs(Song song)
 	{
 		//List of songs by genre and new list for random songs

@@ -35,7 +35,13 @@ public class Song {
 	@Size(min=3, max=20)
 	String genre = "";
 	
-	//Default constructor
+	
+	/**
+	 * Song Default Constructor
+	 *
+
+	 *
+	 */
 	public Song()
 	{
 		id = 0;
@@ -48,7 +54,17 @@ public class Song {
 		
 	}
 
-	//Loaded constructor to set all the song values
+	/**
+	 * Song Constructor
+	 *
+	 *@Param int
+	 *@Param int
+	 *@Param String
+	 *@Param album
+	 *@Param artist
+	 *@Param genre
+	 *
+	 */
 	public Song(int id, int num, String name, String album, String artist, String genre)
 	{
 		this.id = id;

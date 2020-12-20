@@ -4,6 +4,7 @@ import java.util.List;
 
 import beans.Song;
 
+//Interface for Song Business 
 public interface SongBusinessInterface {
 	
 	public void addSong(Song song);

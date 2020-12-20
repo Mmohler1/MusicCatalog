@@ -5,7 +5,7 @@ import java.util.List;
 
 import beans.Song;
 
-//Interface for the Database
+//Interface for the Database Service
 public interface DataSongInterface {
 	public List<Song> findAll();
     public List<Song> findFew();

@@ -29,7 +29,9 @@ public class principle {
 	SongBusinessInterface service;
 	
 	
-	//Default constructor 
+	/**
+     * Logs the user off and sends them to the login screen
+     */
 	public String onLogOff()
 	{
 		//Get the User Managed bea
@@ -40,7 +42,10 @@ public class principle {
 	}
 	
 	
-	//Submits button that checks if username and password match
+	/**
+     * Submits button that checks if username and password match
+     * @Param User
+     */
 	public String onSubmit(User user)
 	{
 		
@@ -64,7 +69,10 @@ public class principle {
 		
 	}
 	
-	
+	/**
+     * For update button
+     * @Param Song
+     */
 	public String onUpdate(Song song)
 	{
 		//Forward response view with the song managed bean.
@@ -73,6 +81,10 @@ public class principle {
 	}
 	
 	
+	/**
+     * For detailed button
+     * @Param Song
+     */
 	public String onDetailed(Song song)
 	{
 		//Forward response view with the song managed bean.
@@ -80,6 +92,10 @@ public class principle {
 		return "DetailSong.xhtml";
 	}
 	
+	/**
+     * For delete button
+     * @Param Song
+     */
 	public String onDelete(Song song) 
 	{
 		
@@ -88,6 +104,10 @@ public class principle {
 		return "DisplaySong.xhtml";
 	}
 	
+	/**
+     * For DeleteHelp button
+     * @Param Song
+     */
 	public String onDeleteHelp(Song song) 
 	{
 		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("song", song);
@@ -102,6 +122,10 @@ public class principle {
 		return "Search2.xhtml";
 	}
 	
+	/**
+     * For Randomize button
+     * @Param Song
+     */
 	public String onRandom(Song song)
 	{
 		//Forward response view with the song managed bean.
@@ -109,7 +133,11 @@ public class principle {
 		return "RandomPicks2.xhtml";
 	}
 	
-	//Button that adds a song to the product list
+	
+	/**
+     * Button that adds a song to the product list
+     * @Param Song
+     */
 	public String addProduct(Song song)
 	{
 		//adds song from the values added in the get button page.
@@ -120,7 +148,11 @@ public class principle {
 		return "DisplaySong.xhtml";
 	}
 
-	//Button that adds a song to the product list
+
+	/**
+     * Button that changes a song to the product list
+     * @Param Song
+     */
 	public String changeProduct(Song song)
 	{
 

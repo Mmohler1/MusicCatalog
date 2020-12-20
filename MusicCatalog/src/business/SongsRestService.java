@@ -20,12 +20,17 @@ import beans.Song;
 @Consumes("application/json")
 public class SongsRestService {
 	
-	//Insert the interface
+		//Insert the interface
 		@Inject
 		SongBusinessInterface service;
 		
 	
-		//Returns a list of the songs with the /getjson url
+		
+		/**
+	     *Returns a list of the songs with the /getjson url
+	     *
+	     *
+	     */
 		@GET
 		@Path("/getjson")
 		@Produces(MediaType.APPLICATION_JSON)
@@ -35,7 +40,13 @@ public class SongsRestService {
 			
 		}
 		
-		//Returns the song that was added to the database with the /postjson url
+		
+		
+		/**
+	     *Returns the song that was added to the database with the /postjson url
+	     *
+	     *
+	     */
 		@POST
 		@Path("/postjson")
 		@Produces(MediaType.APPLICATION_JSON)

@@ -88,7 +88,10 @@ public class SongsDataService implements DataSongInterface {
     }
 	
     
-    
+	/**
+     *Pulls the 4 recent songs to be display on the main screen
+     *
+     */
     public List<Song> findFew() {
         // TODO Auto-generated method stub
 		Connection conn = null;	
@@ -152,6 +155,7 @@ public class SongsDataService implements DataSongInterface {
 	/**
      * @see DataSongInterface#update(Song)
      * Updates the songs based on the ID in the database.
+     * @Param Song
      */
     public void update(Song song) {
         // TODO Auto-generated method stub
@@ -197,8 +201,9 @@ public class SongsDataService implements DataSongInterface {
 
     
 	/**
-     * @see DataSongInterface#delete(Song)
+     * 
      * Deletes the chosen song from database.
+     * @Param int
      */
     public void delete(int id) {
         // TODO Auto-generated method stub
@@ -237,8 +242,8 @@ public class SongsDataService implements DataSongInterface {
 
 
 	/**
-     * @see DataSongInterface#create(Song)
      * Adds a song to the database
+     * @Param Song
      */
     public void create(Song song) {
         // TODO Auto-generated method stub
@@ -282,7 +287,11 @@ public class SongsDataService implements DataSongInterface {
     
     
     
-    //Returns song based on the ID in the Database. If ID is empty then return null.
+    
+	/**
+     * Returns song based on the ID in the Database. If ID is empty then return null.
+     * @Param int
+     */
     public Song findById(int id) {
         // TODO Auto-generated method stub
     	Connection conn = null;	
@@ -349,14 +358,21 @@ public class SongsDataService implements DataSongInterface {
     
     
     
-    //Tests to see if class is working
+    
+	/**
+     *Tests to see if class is working
+     * @Param int
+     */
     public void test()
     {
     	System.out.println("test");
     }
 
     
-    //Search for song based on name.
+	/**
+     * Returns song based on the ID in the Database. If ID is empty then return null.
+     * @Param Song
+     */
     public List<Song> search(Song song) {
         // TODO Auto-generated method stub
 		Connection conn = null;	
@@ -416,7 +432,11 @@ public class SongsDataService implements DataSongInterface {
     }
     
     
-    //Makes a list of every song in the genre
+    
+	/**
+     * Makes a list of every song in the genre
+     * @Param Song
+     */
     public List<Song> byGenre(Song song){
     	
     	List<Song> songs = new ArrayList<Song>();

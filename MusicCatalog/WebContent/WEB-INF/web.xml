@@ -47,7 +47,9 @@
         </servlet-class>
     </servlet>
   
-  <!-- Security Configuration --> 
+  
+  <!-- Security Configuration-->
+  <!--****DELETE FROM HERE TO LINE 86 to run the rest of the program***-->  
   <security-constraint>
         <display-name>GCU Test Application Security Constraints</display-name>
         <web-resource-collection>
@@ -83,6 +85,6 @@
         <description/>
         <role-name>GcuUser</role-name>
    </security-role>
-  
+   <!-- ****DELETE FROM HERE TO LINE 51 to run the rest of the program***--> 
   
 </web-app>

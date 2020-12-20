@@ -109,6 +109,7 @@ public class UserBusinessService implements UserBusinessInterface {
 
 	/**
      * @see UserBusinessInterface#saveData()
+     * Saves data to file
      */
     public void saveData(User user)
     {

@@ -3,7 +3,7 @@ import javax.ejb.Local;
 
 import beans.User;
 
-
+//Interface for User Business Services
 @Local
 public interface UserBusinessInterface {
 

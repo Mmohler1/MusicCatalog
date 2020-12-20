@@ -43,7 +43,11 @@ public class User {
 		@Size(min=8, max=15)
 		String password ="";
 		
-		//Default Constructor
+		/**
+		 * User Default Constructor
+		 *
+		 *
+		 */
 		public User() 
 		{
 			firstName = "first name";
@@ -55,7 +59,12 @@ public class User {
 			password ="password";
 		}
 		
-		//Sets first name to the name in the principle or unkown. 
+		
+		/**
+		 * Sets first name to the name in the principle or unkown.
+		 *
+		 *
+		 */
 		public void init()
 		{
 			// Get the logged in Principle
@@ -73,7 +82,9 @@ public class User {
 
 		}
 		
-		//getter and setter for firstname
+		//getter and setters
+		
+		
 		public String getFirstName() {
 		return firstName;
 		}
@@ -136,7 +147,12 @@ public class User {
 			this.password = password;
 		}
 
-		//saveData() creates a text file writes to all the properties to the file.
+
+		/**
+		 * Creates a text file writes to all the properties to the file.
+		 *
+		 *
+		 */
 		public void saveData() 
 		{
 			try 
