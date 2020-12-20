@@ -30,15 +30,13 @@ public class principle {
 	
 	
 	//Default constructor 
-	public String onSubmit()
+	public String onLogOff()
 	{
-		//Get the User Managed bean
-		FacesContext context = FacesContext.getCurrentInstance();
-		User user = context.getApplication().evaluateExpressionGet(context, "#{user}s", User.class);
+		//Get the User Managed bea
 		
 		//Forward to Test Response View along with the user Managed Bean
-		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("user", user);
-		return "Main.xhtml";
+		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+		return "Main.xhtml?faces-redirect=true";
 	}
 	
 	
@@ -104,6 +102,12 @@ public class principle {
 		return "Search2.xhtml";
 	}
 	
+	public String onRandom(Song song)
+	{
+		//Forward response view with the song managed bean.
+		FacesContext.getCurrentInstance().getExternalContext().getRequestMap().put("song", song);
+		return "RandomPicks2.xhtml";
+	}
 	
 	//Button that adds a song to the product list
 	public String addProduct(Song song)

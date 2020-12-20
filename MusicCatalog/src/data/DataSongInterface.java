@@ -15,6 +15,7 @@ public interface DataSongInterface {
 	public Song findById(int id);
 	public void test();
 	public List<Song> search(Song song);
+	public List<Song> byGenre(Song song);
 
 
 }

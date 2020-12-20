@@ -3,7 +3,9 @@ package business;
 import beans.Song;
 import data.DataSongInterface;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import javax.ejb.EJB;
 import javax.ejb.Local;
@@ -90,10 +92,58 @@ public class SongBusinessService implements SongBusinessInterface {
 	
 	//Getters from search list
 	public List<Song> getSearchedSongs(Song song) {
-		
+		System.out.println(song.getGenre() + " "+ song.getNum());
 		return service.search(song);
 	}
 	
-
-	
+	//gets random songs for the user based on genre
+	public List<Song> getRandomizedSongs(Song song)
+	{
+		//List of songs by genre and new list for random songs
+		List<Song> genreList = service.byGenre(song);
+		List<Song> randomList = new ArrayList<Song>();
+		Random rand = new Random(); //For picking a random song
+		
+		
+		//If the size of the list is 0 then don't continue
+		if (genreList.size() > 0)
+		{
+			int[] randomNum = new int[genreList.size()];
+			int randomNumber;
+			
+			int count = 0;
+			//While loop that adds to the list ass long is count is less the number of songs the user wanted
+			//AND as long as there are that many songs in the list.
+			while ((count < song.getNum()) && (count < genreList.size()))
+			{
+				randomNumber = rand.nextInt(genreList.size());
+				int count2 = 0;
+				
+				//Prevents the same song from being added twice
+				while(count2 < count)
+				{
+					
+					
+					if (randomNum[count2] == randomNumber)
+					{
+						randomNumber = rand.nextInt(genreList.size());
+						count2 = 0;
+					}
+					else
+					{
+						count2++; //Only add to the counter if a new number is found
+					}
+				}
+				
+				randomNum[count] = randomNumber;
+				randomList.add(genreList.get(randomNumber)); //Need to make a list of numbers not to repeat
+				count++;
+			}
+			
+		}
+		
+		
+		return randomList;
+		
+	}
 }

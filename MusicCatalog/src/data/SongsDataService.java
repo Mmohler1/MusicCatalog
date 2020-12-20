@@ -414,4 +414,65 @@ public class SongsDataService implements DataSongInterface {
 			
 		}
     }
+    
+    
+    //Makes a list of every song in the genre
+    public List<Song> byGenre(Song song){
+    	
+    	List<Song> songs = new ArrayList<Song>();
+		Connection conn = null;	
+		String sql = "SELECT * FROM milestone.SONGS WHERE SONG_GENRE = '"
+				+ song.getGenre() + "'";
+		
+		
+		try
+		{
+			//Connecting to database
+			conn = DriverManager.getConnection(url, username, password);
+			
+			//Execute SQL Query and loop
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(sql);
+			
+			while(rs.next())
+			{
+
+				//add new order with each new table
+				songs.add(new Song(rs.getInt("ID"),
+						rs.getInt("SONG_NO"),
+						rs.getString("SONG_NAME"), 
+						rs.getString("SONG_ALBUM"), 
+						rs.getString("SONG_ARTIST"),
+						rs.getString("SONG_GENRE")));	
+				
+			}
+			
+			
+			conn.close();
+			return songs;
+		}
+		catch (SQLException e)
+		{
+			
+			e.printStackTrace();
+			return null;
+			
+		}
+		finally
+		{
+			//Database cleaning
+			if(conn != null)
+			{
+				try
+				{
+					conn.close();
+				}
+				catch (SQLException e)
+				{
+					e.printStackTrace();
+				}
+			}
+		}
+    
+    }
 }

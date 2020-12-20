@@ -2,9 +2,11 @@ package beans;
 
 import java.io.FileWriter;
 import java.io.IOException;
+import java.security.Principal;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -51,6 +53,24 @@ public class User {
 			phoneNumber = "phone number";
 			userName = "username";
 			password ="password";
+		}
+		
+		//Sets first name to the name in the principle or unkown. 
+		public void init()
+		{
+			// Get the logged in Principle
+			Principal principle= FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal();
+				if(principle == null)
+				{
+					setFirstName("Unknown");
+					setLastName("");
+				}
+				else
+				{
+					setFirstName(principle.getName());
+					setLastName("");
+				}
+
 		}
 		
 		//getter and setter for firstname

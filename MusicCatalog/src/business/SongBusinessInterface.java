@@ -14,6 +14,8 @@ public interface SongBusinessInterface {
 	public List<Song> getFewSongs();
 	public void deleteSong(Song song);
 	public List<Song> getSearchedSongs(Song song);
+	public List<Song> getRandomizedSongs(Song song);
+	
 
 
 }
